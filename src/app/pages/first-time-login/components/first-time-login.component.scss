@@ -75,8 +75,6 @@
         a {
           color: #4a6841;
           text-decoration: none;
-          pointer-events: auto; /* Ensures the link is clickable */
-
   
           &:hover {
             text-decoration: underline;
