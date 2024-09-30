@@ -1,5 +1,11 @@
 export const environment = {
     production: false,
-    apiUrl: 'http://localhost:8777'
-
+    apiUrl: {
+        baseUrl: 'http://localhost:9001/recipes/',
+        auth: {
+            portal: {
+              login: 'api/auth/login',
+            }
+          }
+    }
 };
