@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginModule } from './pages/login/components/login.module';
 import { FirstTimeLoginModule } from './pages/first-time-login/components/first-time-login.module';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeModule } from './pages/home/components/home.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     FormsModule,
     LoginModule,
-    FirstTimeLoginModule
+    FirstTimeLoginModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
