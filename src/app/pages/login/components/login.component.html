@@ -7,7 +7,9 @@
       <input type="text" placeholder="User Name" [(ngModel)]="username" name="username" required />
       <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required />
       <button type="submit">Sign In</button>
+      <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p> <!-- Show error message -->
     </form>
+    
     <h3 class="terms">
       Don't have an account? Please <a (click)="onSignUpClick()">Sign Up</a>.
     </h3>
