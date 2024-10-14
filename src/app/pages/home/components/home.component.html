@@ -1,1 +1,48 @@
-<p>home works!</p>
+<div class="home-container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Enjoy Your Healthy Delicious Food</h1>
+        <p>Another free template by Alex. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+        <button class="cta-button">See Our Menu</button>
+      </div>
+      <div class="hero-image">
+        <img src="assets/food-hero-image.jpg" alt="Delicious Food">
+      </div>
+    </section>
+  
+    <!-- Menu Section -->
+    <section class="menu">
+      <h2>Menu</h2>
+      <div class="menu-tabs">
+        <span class="tab">Breakfast</span>
+        <span class="tab">Lunch</span>
+        <span class="tab">Dinner</span>
+        <span class="tab">Drinks</span>
+      </div>
+      <div class="menu-items">
+        <div class="menu-item" *ngFor="let item of menuItems">
+          <img [src]="item.image" alt="{{ item.name }}">
+          <h3>{{ item.name }}</h3>
+          <p>${{ item.price }}</p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Testimonials and Gallery Section -->
+    <section class="testimonials-gallery">
+      <div class="testimonials">
+        <h3>Testimonials</h3>
+        <p>"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia..."</p>
+        <p>John Doe, CEO & Founder</p>
+      </div>
+      <div class="gallery">
+        <h3>Photo Galleries</h3>
+        <div class="gallery-grid">
+          <img *ngFor="let photo of galleryPhotos" [src]="photo" alt="Gallery Image">
+        </div>
+        <button class="cta-button">More Galleries</button>
+      </div>
+    </section>
+  </div>
+  
