@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   menuItems = [
-    { name: 'Italian Sauce Mushroom', price: 19.00, image: 'assets/menu-item1.jpg' },
-    { name: 'Italian Sauce Mushroom', price: 19.00, image: 'assets/menu-item2.jpg' },
-    { name: 'Italian Sauce Mushroom', price: 19.00, image: 'assets/menu-item3.jpg' },
-    { name: 'Italian Sauce Mushroom', price: 19.00, image: 'assets/menu-item4.jpg' },
+    { name: 'Pizza', price: 10.00, image: 'img/pizza.png' },
+    { name: 'Italian Sauce Mushroom', price: 19.00, image: 'img/italian-sauce.png' },
+    { name: 'Chicken Chimichurri', price: 33.15, image: 'img/chicken-chimichurri.png' },
+    { name: 'Jollof Rice', price: 22.63, image: 'img/Jollof-rice.png' },
   ];
 
   galleryPhotos = [
