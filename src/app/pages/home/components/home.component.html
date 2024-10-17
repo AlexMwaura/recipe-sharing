@@ -15,13 +15,13 @@
     <section class="menu">
       <h2>Menu</h2>
       <div class="menu-tabs">
-        <span class="tab">Breakfast</span>
-        <span class="tab">Lunch</span>
-        <span class="tab">Dinner</span>
-        <span class="tab">Drinks</span>
+        <span class="tab" [class.active]="selectedCategory === 'Breakfast'" (click)="selectCategory('Breakfast')">Breakfast</span>
+        <span class="tab" [class.active]="selectedCategory === 'Lunch'" (click)="selectCategory('Lunch')">Lunch</span>
+        <span class="tab" [class.active]="selectedCategory === 'Dinner'" (click)="selectCategory('Dinner')">Dinner</span>
+        <span class="tab" [class.active]="selectedCategory === 'Drinks'" (click)="selectCategory('Drinks')">Drinks</span>
       </div>
       <div class="menu-items">
-        <div class="menu-item" *ngFor="let item of menuItems">
+        <div class="menu-item" *ngFor="let item of filteredMenuItems">
           <img [src]="item.image" alt="{{ item.name }}">
           <h3>{{ item.name }}</h3>
           <p>${{ item.price }}</p>

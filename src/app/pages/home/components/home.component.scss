@@ -124,8 +124,11 @@
           gap: 10px;
   
           img {
-            max-width: 100%;
-            height: auto;
+            width: 50%;
+            height: 50%;
+            margin-bottom: 10px;
+            object-fit: cover; /* Ensures image maintains aspect ratio and fits within the box */
+            border-radius: 10px;
           }
         }
   
@@ -140,5 +143,17 @@
         }
       }
     }
+    .tab {
+      cursor: pointer;
+      padding: 10px;
+      font-weight: bold;
+      color: #555;
+    }
+    
+    .tab.active {
+      color: #4caf50;
+      border-bottom: 2px solid #4caf50;
+    }
+    
   }
   
