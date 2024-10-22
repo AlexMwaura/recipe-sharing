@@ -22,9 +22,11 @@
       </div>
       <div class="menu-items">
         <div class="menu-item" *ngFor="let item of filteredMenuItems">
+          <a [routerLink]="['/recipe', item.name]">
           <img [src]="item.image" alt="{{ item.name }}">
           <h3>{{ item.name }}</h3>
           <p>${{ item.price }}</p>
+        </a>
         </div>
       </div>
     </section>
