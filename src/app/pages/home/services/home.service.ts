@@ -9,15 +9,14 @@ export interface MenuItem {
   imagePath: string;
 }
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HomeService {
   private apiUrl = environment.apiUrl.baseUrl;
 
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   getAllMenuItems(): Observable<MenuItem[]> {
-    const url = `${this.apiUrl}`+environment.apiUrl.menuItems.portal.items;
+    const url = `${this.apiUrl}` + environment.apiUrl.menuItems.portal.items;
 
     return this.http.post<MenuItem[]>(url, {});
   }
@@ -36,7 +35,7 @@ export class HomeService {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.onload = () => resolve(reader.result as string);
-      reader.onerror = error => reject(error);
+      reader.onerror = (error) => reject(error);
       reader.readAsDataURL(file);
     });
   }

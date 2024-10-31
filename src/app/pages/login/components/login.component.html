@@ -4,17 +4,30 @@
     <h2>Hello there.</h2>
     <p>Please enter your username and password to continue.</p>
     <form (ngSubmit)="onSubmit()">
-      <input type="text" placeholder="User Name" [(ngModel)]="username" name="username" required />
-      <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required />
+      <input
+        type="text"
+        placeholder="User Name"
+        [(ngModel)]="username"
+        name="username"
+        required
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        [(ngModel)]="password"
+        name="password"
+        required
+      />
       <button type="submit">Sign In</button>
-      <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p> <!-- Show error message -->
+      <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+      <!-- Show error message -->
     </form>
-    
+
     <h3 class="terms">
       Don't have an account? Please <a (click)="onSignUpClick()">Sign Up</a>.
     </h3>
   </div>
   <div class="login-image">
-    <img src="img/login.png" alt="Coffee Image">
+    <img src="img/login.png" alt="Coffee Image" />
   </div>
 </div>

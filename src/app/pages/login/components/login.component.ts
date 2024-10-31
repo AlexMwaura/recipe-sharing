@@ -5,16 +5,13 @@ import { LoginService } from '../services/login.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  constructor(
-    private loginService: LoginService,
-    private router: Router  ) {}
+  constructor(private loginService: LoginService, private router: Router) {}
   username: string = '';
   password: string = '';
   errorMessage: string = ''; // To show error message
-
 
   onSignUpClick() {
     this.router.navigate(['/first-time-login']);
@@ -31,8 +28,7 @@ export class LoginComponent {
       },
       error: (err) => {
         this.errorMessage = 'Invalid username or password'; // Handle any errors
-      }
+      },
     });
   }
-
 }
