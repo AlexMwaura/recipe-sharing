@@ -12,6 +12,7 @@ export const environment = {
               items: 'api/menu/items',
               addItems: 'api/menu/addItems',
               itemsCategory: 'api/menu/items/category',
+              recipeDetails: 'api/menu/items'
 
 
             }

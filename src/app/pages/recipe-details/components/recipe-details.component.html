@@ -1,8 +1,9 @@
-<div class="recipe-details-container" *ngIf="selectedRecipe">
+
+  <div class="recipe-details-container" *ngIf="selectedRecipe">
     <!-- Recipe Image and Title Section -->
     <div class="left-section">
       <div class="recipe-image">
-        <img [src]="selectedRecipe.image" alt="{{ selectedRecipe.name }}">
+        <img [src]="getImageUrl(selectedRecipe.imagePath)" alt="{{ selectedRecipe.name }}">
       </div>
       <div class="recipe-info">
         <h2>{{ selectedRecipe.name }}</h2>
@@ -20,7 +21,7 @@
       <div class="ingredients-section">
         <h3>Ingredients</h3>
         <ul>
-          <li *ngFor="let ingredient of selectedRecipe.ingredients">{{ ingredient }}</li>
+          <li *ngFor="let ingredient of getIngredients()">{{ ingredient }}</li>
         </ul>
       </div>
     </div>

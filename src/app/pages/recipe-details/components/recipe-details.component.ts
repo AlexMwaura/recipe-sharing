@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { RecipeDetailsService } from '../services/recipe-details.service';
 
 @Component({
   selector: 'app-recipe-details',
@@ -9,13 +10,37 @@ import { ActivatedRoute } from '@angular/router';
 export class RecipeDetailsComponent {
   recipeName: string | null = '';
   selectedRecipe: any;
-  menuItems = [
-    { name: 'Pancakes', category: 'Breakfast', price: 5.00, image: 'breakfast/pancake.png', ingredients: ['Flour', 'Eggs', 'Milk'], time: '20 min', method: 'Mix ingredients and cook on a pan.' },
-    // Add other items here
-  ];
-constructor(private route: ActivatedRoute) { }
+
+constructor(private route: ActivatedRoute,private recipeDetailsService: RecipeDetailsService) { }
 ngOnInit(): void {
   this.recipeName = this.route.snapshot.paramMap.get('name');
-  this.selectedRecipe = this.menuItems.find(item => item.name === this.recipeName);
+  if (this.recipeName) {
+    this.fetchRecipeDetails(this.recipeName);
+  }
+}
+fetchRecipeDetails(name: string) {
+  this.recipeDetailsService.getRecipeDetails(name).subscribe(
+    (recipe) => {
+      this.selectedRecipe = recipe;
+    },
+    (error) => {
+      console.error('Error fetching recipe details:', error);
+    }
+  );
+  
+}
+getIngredients(): string[] {
+  if (!this.selectedRecipe?.ingredients) return [];
+  // Remove brackets and split by comma
+  return this.selectedRecipe.ingredients
+    .replace('[', '')
+    .replace(']', '')
+    .split(',')
+    .map((item: string) => item.trim());
+}
+
+// Helper method for image URL
+getImageUrl(imagePath: string): string {
+  return `http://localhost:9001/recipes${imagePath}`;
 }
 }
