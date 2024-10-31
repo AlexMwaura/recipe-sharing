@@ -8,6 +8,7 @@ import { LoginModule } from './pages/login/components/login.module';
 import { FirstTimeLoginModule } from './pages/first-time-login/components/first-time-login.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeModule } from './pages/home/components/home.module';
+import { RecipeDetailsModule } from './pages/recipe-details/components/recipe-details.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HomeModule } from './pages/home/components/home.module';
     FormsModule,
     LoginModule,
     FirstTimeLoginModule,
-    HomeModule
+    HomeModule,
+    RecipeDetailsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

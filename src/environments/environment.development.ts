@@ -6,6 +6,16 @@ export const environment = {
             portal: {
               login: 'api/auth/login',
             }
+          },
+          menuItems: {
+            portal: {
+              items: 'api/menu/items',
+              addItems: 'api/menu/addItems',
+              itemsCategory: 'api/menu/items/category',
+              recipeDetails: 'api/menu/items'
+
+
+            }
           }
     }
 };

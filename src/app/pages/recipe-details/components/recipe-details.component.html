@@ -1,0 +1,29 @@
+
+  <div class="recipe-details-container" *ngIf="selectedRecipe">
+    <!-- Recipe Image and Title Section -->
+    <div class="left-section">
+      <div class="recipe-image">
+        <img [src]="getImageUrl(selectedRecipe.imagePath)" alt="{{ selectedRecipe.name }}">
+      </div>
+      <div class="recipe-info">
+        <h2>{{ selectedRecipe.name }}</h2>
+        <p><strong>Preparation Time:</strong> {{ selectedRecipe.time }}</p>
+        <p><strong>Category:</strong> {{ selectedRecipe.category }}</p>
+      </div>
+    </div>
+  
+    <!-- Recipe Method and Ingredients Section -->
+    <div class="right-section">
+      <div class="method-section">
+        <h3>Method</h3>
+        <p>{{ selectedRecipe.method }}</p>
+      </div>
+      <div class="ingredients-section">
+        <h3>Ingredients</h3>
+        <ul>
+          <li *ngFor="let ingredient of getIngredients()">{{ ingredient }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  

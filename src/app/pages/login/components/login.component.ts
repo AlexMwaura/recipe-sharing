@@ -13,6 +13,8 @@ export class LoginComponent {
     private router: Router  ) {}
   username: string = '';
   password: string = '';
+  errorMessage: string = ''; // To show error message
+
 
   onSignUpClick() {
     this.router.navigate(['/first-time-login']);
@@ -20,13 +22,15 @@ export class LoginComponent {
   onSubmit() {
     this.loginService.login(this.username, this.password).subscribe({
       next: (response) => {
-        // Handle success, navigate to dashboard or home page
-        console.log('Login successful', response);
-        this.router.navigate(['/home']);
+        if (response.success) {
+          // Assuming response.success is true for valid credentials
+          this.router.navigate(['/home']); // Redirect to home page on successful login
+        } else {
+          this.errorMessage = 'Invalid username or password'; // Show error on invalid login
+        }
       },
       error: (err) => {
-        // Handle error, display message to user
-        console.error('Login failed', err);
+        this.errorMessage = 'Invalid username or password'; // Handle any errors
       }
     });
   }

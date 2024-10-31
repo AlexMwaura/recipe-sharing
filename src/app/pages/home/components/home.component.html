@@ -1,1 +1,50 @@
-<p>home works!</p>
+<div class="home-container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Enjoy Your Healthy Delicious Food</h1>
+        <p>Discover Recipes That Inspire Your Inner Chef. From the freshest ingredients to gourmet flavors, elevate your cooking today..</p>
+        <button class="cta-button">See Our Menu</button>
+      </div>
+      <div class="hero-image">
+        <img src="img/hero-image.png" alt="Delicious Food">
+      </div>
+    </section>
+  
+    <!-- Menu Section -->
+    <section class="menu">
+      <h2>Menu</h2>
+      <div class="menu-tabs">
+        <span class="tab" [class.active]="selectedCategory === 'Breakfast'" (click)="selectCategory('Breakfast')">Breakfast</span>
+        <span class="tab" [class.active]="selectedCategory === 'Lunch'" (click)="selectCategory('Lunch')">Lunch</span>
+        <span class="tab" [class.active]="selectedCategory === 'Dinner'" (click)="selectCategory('Dinner')">Dinner</span>
+        <span class="tab" [class.active]="selectedCategory === 'Drinks'" (click)="selectCategory('Drinks')">Drinks</span>
+      </div>
+      <div class="menu-items">
+        <div class="menu-item" *ngFor="let item of filteredMenuItems">
+          <a [routerLink]="['/recipe', item.name]">
+            <img [src]="getImageUrl(item.imagePath)" alt="{{ item.name }}">
+            <h3>{{ item.name }}</h3>
+            <p>${{ item.price }}</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Testimonials and Gallery Section -->
+    <section class="testimonials-gallery">
+      <div class="testimonials">
+        <h3>Testimonials</h3>
+        <p>"I never thought cooking could be this easy and fun! The recipes are simple to follow, and the results are always delicious. My family can't get enough of the meals I've been preparing. This site has truly transformed the way I cook!"</p>
+        <p>Alex Mwaura, Home Chef</p>
+      </div>
+      <div class="gallery">
+        <h3>Photo Galleries</h3>
+        <div class="gallery-grid">
+          <img *ngFor="let photo of galleryPhotos" [src]="photo" alt="Gallery Image">
+        </div>
+        <button class="cta-button">More Galleries</button>
+      </div>
+    </section>
+  </div>
+  

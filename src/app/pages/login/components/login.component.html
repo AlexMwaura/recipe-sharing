@@ -7,12 +7,14 @@
       <input type="text" placeholder="User Name" [(ngModel)]="username" name="username" required />
       <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required />
       <button type="submit">Sign In</button>
+      <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p> <!-- Show error message -->
     </form>
+    
     <h3 class="terms">
       Don't have an account? Please <a (click)="onSignUpClick()">Sign Up</a>.
     </h3>
   </div>
   <div class="login-image">
-    <img src="https://images.unsplash.com/photo-1608991467796-7267e7accc00?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Coffee Image">
+    <img src="img/login.png" alt="Coffee Image">
   </div>
 </div>
