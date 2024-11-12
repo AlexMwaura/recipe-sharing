@@ -58,13 +58,10 @@
   <section class="testimonials-gallery">
     <div class="testimonials">
       <h3>Testimonials</h3>
-      <p>
-        "I never thought cooking could be this easy and fun! The recipes are
-        simple to follow, and the results are always delicious. My family can't
-        get enough of the meals I've been preparing. This site has truly
-        transformed the way I cook!"
-      </p>
-      <p>Alex Mwaura, Home Chef</p>
+      <div *ngIf="testimonials.length > 0">
+        <p>{{ testimonials[currentTestimonialIndex]?.description }}</p>
+        <p>{{ testimonials[currentTestimonialIndex]?.name }}</p>
+      </div>
     </div>
     <div class="gallery">
       <h3>Photo Galleries</h3>
