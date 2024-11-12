@@ -16,6 +16,12 @@ export const environment = {
 
 
             }
+          },
+          testimonials: {
+            portal: {
+              fetchTestimonials: 'api/testimonials/all',
+              addTestimonials: 'api/testimonials/addTestimonials'
+            }
           }
     }
 };
