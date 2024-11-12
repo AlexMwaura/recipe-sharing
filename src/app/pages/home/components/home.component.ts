@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeService, MenuItem } from '../services/home.service';
+import { HomeService, MenuItem, Testimonials } from '../services/home.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,10 @@ import { HomeService, MenuItem } from '../services/home.service';
 export class HomeComponent {
   selectedCategory: string = 'Breakfast'; // Default to show all items
   menuItems: MenuItem[] = [];
-  constructor(private menuItemService: HomeService) {}
+  testimonials: Testimonials[] = [];
+  currentTestimonialIndex: number = 0;
+
+  constructor(private homeService: HomeService) {}
 
   galleryPhotos = [
     'gallery/champagne.png',
@@ -22,10 +25,12 @@ export class HomeComponent {
 
   ngOnInit() {
     this.loadMenuItems();
+    this.loadTestimonials();
+    this.startTestimonialRotation();
   }
 
   loadMenuItems() {
-    this.menuItemService.getAllMenuItems().subscribe(
+    this.homeService.getAllMenuItems().subscribe(
       (items) => (this.menuItems = items),
       (error) => console.error('Error loading menu items:', error)
     );
@@ -43,4 +48,17 @@ export class HomeComponent {
   getImageUrl(imagePath: string): string {
     return `http://localhost:9001/recipes${imagePath}`;
   }
+  loadTestimonials() {
+    this.homeService.fetchTestimonials().subscribe(
+      (data) => (this.testimonials = data),
+      (error) => console.error('Error loading testimonials:', error)
+    );
+  }
+    // Method to rotate testimonials every 5 seconds
+    startTestimonialRotation() {
+      setInterval(() => {
+        this.currentTestimonialIndex =
+          (this.currentTestimonialIndex + 1) % this.testimonials.length;
+      }, 5000);
+    }
 }

@@ -8,6 +8,11 @@ export interface MenuItem {
   price: number;
   imagePath: string;
 }
+
+export interface Testimonials {
+  name: string;
+  description: string;
+}
 @Injectable({
   providedIn: 'root',
 })
@@ -15,6 +20,7 @@ export class HomeService {
   private apiUrl = environment.apiUrl.baseUrl;
 
   constructor(private http: HttpClient) {}
+
   getAllMenuItems(): Observable<MenuItem[]> {
     const url = `${this.apiUrl}` + environment.apiUrl.menuItems.portal.items;
 
@@ -29,6 +35,13 @@ export class HomeService {
     const url = `${this.apiUrl}${environment.apiUrl.menuItems.portal.addItems}`;
     return this.http.post<MenuItem>(url, menuItem);
   }
+
+  fetchTestimonials(): Observable<Testimonials[]> {
+    const url = `${this.apiUrl}` + environment.apiUrl.testimonials.portal.fetchTestimonials;
+
+    return this.http.post<Testimonials[]>(url, {});
+  }
+  
 
   // Method to convert file to base64
   convertFileToBase64(file: File): Promise<string> {
