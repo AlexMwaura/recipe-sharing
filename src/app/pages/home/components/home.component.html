@@ -46,7 +46,7 @@
     <div class="menu-items">
       <div class="menu-item" *ngFor="let item of filteredMenuItems">
         <a [routerLink]="['/recipe', item.name]">
-          <img [src]="getImageUrl(item.imagePath)" alt="{{ item.name }}" />
+          <img [src]="item.imagePath" alt="{{ item.name }}" />
           <h3>{{ item.name }}</h3>
           <p>${{ item.price }}</p>
         </a>

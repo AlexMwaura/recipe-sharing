@@ -46,7 +46,7 @@ export class HomeComponent {
     this.selectedCategory = category;
   }
   getImageUrl(imagePath: string): string {
-    return `http://localhost:9001/recipes${imagePath}`;
+    return imagePath;
   }
   loadTestimonials() {
     this.homeService.fetchTestimonials().subscribe(

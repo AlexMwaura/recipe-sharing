@@ -43,6 +43,6 @@ export class RecipeDetailsComponent {
 
   // Helper method for image URL
   getImageUrl(imagePath: string): string {
-    return `http://localhost:9001/recipes${imagePath}`;
+    return imagePath;
   }
 }
