@@ -7,7 +7,7 @@
         Discover Recipes That Inspire Your Inner Chef. From the freshest
         ingredients to gourmet flavors, elevate your cooking today..
       </p>
-      <button class="cta-button">See Our Menu</button>
+      <button class="cta-button" (click)="scrollToMenu()">See Our Menu</button>
     </div>
     <div class="hero-image">
       <img src="img/hero-image.png" alt="Delicious Food" />
@@ -15,7 +15,7 @@
   </section>
 
   <!-- Menu Section -->
-  <section class="menu">
+  <section id="menu" class="menu" #menu>
     <h2>Menu</h2>
     <div class="menu-tabs">
       <span

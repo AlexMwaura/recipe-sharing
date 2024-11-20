@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HomeService, MenuItem, Testimonials } from '../services/home.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { HomeService, MenuItem, Testimonials } from '../services/home.service';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
+  @ViewChild('menu') menuSection!: ElementRef; // Reference to the menu section
   selectedCategory: string = 'Breakfast'; // Default to show all items
   menuItems: MenuItem[] = [];
   testimonials: Testimonials[] = [];
@@ -61,4 +62,8 @@ export class HomeComponent {
           (this.currentTestimonialIndex + 1) % this.testimonials.length;
       }, 5000);
     }
+      // Scroll to the Menu Section
+  scrollToMenu() {
+    this.menuSection.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
 }
